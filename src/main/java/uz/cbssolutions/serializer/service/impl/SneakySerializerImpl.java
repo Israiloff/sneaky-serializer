@@ -12,7 +12,7 @@ import uz.cbssolutions.serializer.service.SneakySerializer;
 import java.util.function.BiFunction;
 
 /**
- * Utility for serialization purposes.
+ * Json serializer. Uses Jackson serializer for serialization/deserialization operations.
  */
 @Slf4j
 @Component
@@ -24,7 +24,8 @@ public class SneakySerializerImpl implements SneakySerializer {
      */
     private final ObjectMapper objectMapper;
 
-    private <TResult, TData> Mono<TResult> reactiveCall(BiFunction<TData, Class<TResult>, TResult> serializer, TData data, Class<TResult> resultClass) {
+    private <TResult, TData> Mono<TResult> reactiveCall(BiFunction<TData, Class<TResult>, TResult> serializer,
+                                                        TData data, Class<TResult> resultClass) {
         return Mono.<TResult>create(sink -> {
             TResult result;
             try {
