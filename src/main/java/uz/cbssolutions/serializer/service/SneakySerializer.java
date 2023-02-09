@@ -46,4 +46,22 @@ public interface SneakySerializer {
      * @return Deserialized data.
      */
     <T> T deserialize(String text, Class<T> tClass);
+
+    /**
+     * Serialization method.
+     *
+     * @param data Data to serialize.
+     * @param <T>  Type of data to serialize.
+     * @return Serialized text.
+     */
+    <T> String serialize(T data);
+
+    /**
+     * Reactive serialization method.
+     *
+     * @param data Data to serialize.
+     * @param <T>  Type of data to serialize.
+     * @return Serialized text.
+     */
+    <T> Mono<String> reactiveSerialization(T data);
 }

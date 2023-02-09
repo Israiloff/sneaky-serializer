@@ -12,7 +12,7 @@
 
     <groupId>uz.cbssolutions</groupId>
     <artifactId>sneaky-serializer</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>sneaky-serializer</name>
@@ -21,6 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
+        <cbs-checkstyle.version>0.2.25</cbs-checkstyle.version>
     </properties>
 
     <dependencies>
@@ -67,7 +68,7 @@
                     <dependency>
                         <groupId>uz.cbssolutions</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>0.0.18</version>
+                        <version>${cbs-checkstyle.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>

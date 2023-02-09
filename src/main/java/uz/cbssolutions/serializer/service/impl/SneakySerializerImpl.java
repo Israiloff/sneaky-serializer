@@ -39,38 +39,26 @@ public class SneakySerializerImpl implements SneakySerializer {
     }
 
     /**
-     * Byte array reactive deserialization operation with runtime exception.
-     *
-     * @param bytes  Data for deserialization.
-     * @param tClass Result class.
-     * @param <T>    Type of deserialization result.
-     * @return Deserialized data.
+     * {@inheritDoc}
      */
+    @Override
     public <T> Mono<T> reactiveDeserialization(byte[] bytes, Class<T> tClass) {
         return reactiveCall(this::deserialize, bytes, tClass);
     }
 
     /**
-     * String overload of reactive deserialization operation with runtime exception.
-     *
-     * @param text   Text for deserialization.
-     * @param tClass Result class.
-     * @param <T>    Type of deserialization result.
-     * @return Deserialized data.
+     * {@inheritDoc}
      */
+    @Override
     public <T> Mono<T> reactiveDeserialization(String text, Class<T> tClass) {
         return reactiveCall(this::deserialize, text, tClass);
     }
 
     /**
-     * Byte array deserialization operation with runtime exception.
-     *
-     * @param bytes  Data for deserialization.
-     * @param tClass Result class.
-     * @param <T>    Type of deserialization result.
-     * @return Deserialized data.
+     * {@inheritDoc}
      */
     @SneakyThrows
+    @Override
     public <T> T deserialize(byte[] bytes, Class<T> tClass) {
         var result = objectMapper.readValue(bytes, tClass);
         log.debug("deserialization result : {}", result);
@@ -78,17 +66,42 @@ public class SneakySerializerImpl implements SneakySerializer {
     }
 
     /**
-     * String overload of deserialization operation with runtime exception.
-     *
-     * @param text   Text for deserialization.
-     * @param tClass Result class.
-     * @param <T>    Type of deserialization result.
-     * @return Deserialized data.
+     * {@inheritDoc}
      */
     @SneakyThrows
+    @Override
     public <T> T deserialize(String text, Class<T> tClass) {
         var result = objectMapper.readValue(text, tClass);
         log.debug("deserialization result : {}", result);
         return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SneakyThrows
+    @Override
+    public <T> String serialize(T data) {
+        var result = objectMapper.writeValueAsString(data);
+        log.debug("serialization result : {}", result);
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SneakyThrows
+    @Override
+    public <T> Mono<String> reactiveSerialization(T data) {
+        return Mono.<String>create(sink -> {
+            String result;
+            try {
+                result = objectMapper.writeValueAsString(data);
+            } catch (Throwable e) {
+                sink.error(e);
+                return;
+            }
+            sink.success(result);
+        }).publishOn(Schedulers.boundedElastic());
     }
 }
