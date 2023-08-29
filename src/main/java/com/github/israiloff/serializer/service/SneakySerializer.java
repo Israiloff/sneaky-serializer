@@ -1,4 +1,4 @@
-package uz.cbssolutions.serializer.service;
+package com.github.israiloff.serializer.service;
 
 import reactor.core.publisher.Mono;
 
