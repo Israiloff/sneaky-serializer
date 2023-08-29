@@ -1,10 +1,9 @@
 # Sneaky serializer plugin
 
-The main idea of [***this***](https://gitlab.hayotbank.uz/mobile-back/plugins/general/sneaky-serializer) plugin is to
+The main idea of [***this***](https://github.com/Israiloff/sneaky-serializer) plugin is to
 give an opportunity of serialization/deserialization of data in [***reactive***](https://projectreactor.io/) manner
 without
-catching exception cases (it throws exceptions at runtime). It implements both [
-***reactive***](https://projectreactor.io/)
+catching exception cases (it throws exceptions at runtime). It implements both [***reactive***](https://projectreactor.io/)
 and imperative types of operations.
 
 ## Sample code
