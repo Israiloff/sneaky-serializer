@@ -1,4 +1,4 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/checkstyle-rules/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/checkstyle-rules)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/sneaky-serializer/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/sneaky-serializer)
 
 # Sneaky serializer plugin
 
