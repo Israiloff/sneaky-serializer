@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/checkstyle-rules/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.israiloff/checkstyle-rules)
+
 # Sneaky serializer plugin
 
 The main idea of [***this***](https://github.com/Israiloff/sneaky-serializer) plugin is to
