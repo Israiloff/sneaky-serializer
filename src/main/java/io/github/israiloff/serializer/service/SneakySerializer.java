@@ -1,4 +1,4 @@
-package com.github.israiloff.serializer.service;
+package io.github.israiloff.serializer.service;
 
 import reactor.core.publisher.Mono;
 
